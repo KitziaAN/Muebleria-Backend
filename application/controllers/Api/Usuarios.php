@@ -9,10 +9,10 @@ class Usuarios extends REST_Controller{
         $this->load->database();
     }
 
-    public function index_get($codigo=0){
+    public function index_get($codigo=""){
         // En caso de recuperar un categoria especifica
-        if (!empty($id)) {
-            $data = $this->db->get_where("usuarios", ['codigo_usuario'=>$codigo])->row_array();
+        if (!empty($codigo)) {
+            $data = $this->db->get_where("usuarios", ['usuario'=>$codigo])->row_array();
         }
         // recuperar todas las categorias
         else{

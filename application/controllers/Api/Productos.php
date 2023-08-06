@@ -11,7 +11,7 @@ class Productos extends REST_Controller{
 
     public function index_get($codigo=0){
         // En caso de recuperar un producto especifica
-        if (!empty($id)) {
+        if (!empty($codigo)) {
             $data = $this->db->get_where("productos", ['codigo_producto'=>$codigo])->row_array();
         }
         // recuperar todas las productos

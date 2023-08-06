@@ -9,10 +9,10 @@ class EntradasYSalidas extends REST_Controller{
         $this->load->database();
     }
 
-    public function index_get($codigo=0){
+    public function index_get($codigo=''){
         // En caso de recuperar un entrada_salida especifica
         if (!empty($codigo)) {
-            $data = $this->db->get_where("salidas_entradas", ['codigo_eys'=>$codigo])->row_array();
+            $data = $this->db->get_where("salidas_entradas", ['fecha'=>$codigo])->result();
         }
         // recuperar todas las entrada_salida
         else{

@@ -11,7 +11,7 @@ class Categorias extends REST_Controller{
 
     public function index_get($codigo=0){
         // En caso de recuperar un categoria especifica
-        if (!empty($id)) {
+        if (!empty($codigo)) {
             $data = $this->db->get_where("categorias", ['codigo_categoria'=>$codigo])->row_array();
         }
         // recuperar todas las categorias
