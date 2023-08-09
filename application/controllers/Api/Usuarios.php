@@ -9,7 +9,7 @@ class Usuarios extends REST_Controller{
         $this->load->database();
     }
 
-    public function index_get($codigo=""){
+    public function index_get($codigo=0){
         // En caso de recuperar un categoria especifica
         if (!empty($codigo)) {
             $data = $this->db->get_where("usuarios", ['usuario'=>$codigo])->row_array();
@@ -29,12 +29,12 @@ class Usuarios extends REST_Controller{
 
     public function index_put($codigo){
         $input = $this->put();
-        $this->db->update("usuarios", $input, array("codigo_usuario" => $codigo));
+        $this->db->update("usuarios", $input, array("clave_empleado" => $codigo));
         $this->response(['Usuario actualizada'], REST_Controller::HTTP_OK);
     }
 
     public function index_delete($codigo){
-        $this->db->delete("usuarios", array("codigo_usuario" => $codigo));
+        $this->db->delete("usuarios", array("clave_empleado" => $codigo));
         $this->response(['Usuario eliminada'], REST_Controller::HTTP_OK);
     }
 
